@@ -1,0 +1,6 @@
+loading the dataset
+loading the model and tokenizer
+starting evaluation
+finished evaluation
+inference time is: 2.099360942840576 seconds
+the accuracy is: 0.18

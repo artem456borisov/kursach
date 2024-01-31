@@ -1,0 +1,21 @@
+data:
+    data_path: "ai-forever/MERA"
+    dataset_name: "rummlu"
+    path_to_logger: "runs/history.log"
+tokenizer:
+    name_or_path: 'huggyllama/llama-7b'
+    kwargs:
+        return_tensors: 'pt'
+        padding: 'max_length'
+        max_length: 256
+        # padding_side: 'left'
+        truncation: True
+        # pad_token: '</s>'
+model:
+    pretrained_model_name_or_path: 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'
+    device_map: 'auto'
+    attn_implementation: "flash_attention_2"
+loader_args:
+    batch_size: 3
+generation_args:
+    max_new_tokens: 1
