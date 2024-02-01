@@ -3,11 +3,11 @@ data:
     dataset_name: "rummlu"
     path_to_logger: "runs/history.log"
 tokenizer:
-    name_or_path: 'huggyllama/llama-7b'
+    name_or_path: 'huggyllama/llama-7b' #'mistralai/Mistral-7B-Instruct-v0.2' #"mistralai/Mixtral-8x7B-v0.1" #'huggyllama/llama-7b'
     kwargs:
         return_tensors: 'pt'
         padding: 'max_length'
-        max_length: 256
+        max_length: 512
         # padding_side: 'left'
         truncation: True
         # pad_token: '</s>'
@@ -15,6 +15,9 @@ model:
     pretrained_model_name_or_path: 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'
     device_map: 'auto'
     attn_implementation: "flash_attention_2"
+inference_speedup:
+    deepspeed: true
+    num_gpus: 1
 loader_args:
     batch_size: 3
 generation_args:
